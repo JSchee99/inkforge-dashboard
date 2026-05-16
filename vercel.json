@@ -3,12 +3,8 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "env": {
-    "VITE_API_URL": {
-      "description": "InkForge API endpoint URL"
-    },
-    "VITE_WS_URL": {
-      "description": "WebSocket endpoint for real-time updates"
-    }
+    "VITE_API_URL": "https://api.inkforge.local",
+    "VITE_WS_URL": "wss://ws.inkforge.local"
   },
   "functions": {
     "api/**": {
