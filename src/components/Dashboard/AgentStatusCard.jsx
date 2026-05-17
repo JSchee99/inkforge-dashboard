@@ -1,5 +1,6 @@
 import React from 'react';
-import { HiPlay, HiRotate, HiEye } from 'react-icons/hi';
+import { HiPlay, HiEye } from 'react-icons/hi';
+import { FaSync } from 'react-icons/fa';
 import Card from '../common/Card';
 import Badge from '../common/Badge';
 import ProgressBar from '../common/ProgressBar';
@@ -68,7 +69,7 @@ const AgentStatusCard = ({
             <Button
               variant="secondary"
               size="sm"
-              icon={HiRotate}
+              icon={FaSync}
               onClick={onRetry}
             >
               Retry
