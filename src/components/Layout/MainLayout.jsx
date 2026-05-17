@@ -34,6 +34,7 @@ const MainLayout = ({ currentPage, setCurrentPage, children }) => {
             setCurrentPage(page);
             setSidebarOpen(false);
           }}
+          onCloseSidebar={() => setSidebarOpen(false)}
           navigationItems={navigationItems}
         />
 

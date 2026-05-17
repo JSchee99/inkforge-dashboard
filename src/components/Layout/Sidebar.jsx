@@ -1,14 +1,14 @@
 import React from 'react';
 import { HiX } from 'react-icons/hi';
 
-const Sidebar = ({ isOpen, currentPage, onNavigate, navigationItems }) => {
+const Sidebar = ({ isOpen, currentPage, onNavigate, navigationItems, onCloseSidebar }) => {
   return (
     <>
       {/* Mobile Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
-          onClick={() => onNavigate(currentPage)}
+          onClick={onCloseSidebar}
           role="presentation"
           aria-hidden="true"
         />
@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen, currentPage, onNavigate, navigationItems }) => {
       >
         {/* Close Button (Mobile) */}
         <button
-          onClick={() => onNavigate(currentPage)}
+          onClick={onCloseSidebar}
           className="absolute top-20 right-4 lg:hidden p-2 hover:bg-primary-800 rounded-md transition focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:outline-none"
           aria-label="Close navigation menu"
         >
