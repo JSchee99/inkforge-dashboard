@@ -17,7 +17,7 @@ const Sidebar = ({ isOpen, currentPage, onNavigate, navigationItems }) => {
       {/* Sidebar */}
       <aside
         className={`
-          fixed left-0 top-0 h-screen w-64 bg-primary-900 text-white pt-20
+          fixed left-0 top-0 h-screen w-64 bg-primary-900 dark:bg-slate-900 text-white pt-20
           transform transition-transform duration-300 z-40
           ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           lg:translate-x-0

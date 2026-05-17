@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DashboardProvider } from './context/DashboardContext.jsx';
 import { ApprovalProvider } from './context/ApprovalContext.jsx';
+import { ThemeProvider } from './context/ThemeContext.jsx';
 import MainLayout from './components/Layout/MainLayout';
 import Dashboard from './pages/Dashboard';
 import Checkpoint1Outline from './components/Checkpoints/Checkpoint1Outline';
@@ -73,15 +74,15 @@ function App() {
   };
 
   return (
-    <DashboardProvider>
-      <ApprovalProvider>
-        <MainLayout currentPage={currentPage} setCurrentPage={setCurrentPage}>
-          <div className="p-6">
+    <ThemeProvider>
+      <DashboardProvider>
+        <ApprovalProvider>
+          <MainLayout currentPage={currentPage} setCurrentPage={setCurrentPage}>
             {renderPage()}
-          </div>
-        </MainLayout>
-      </ApprovalProvider>
-    </DashboardProvider>
+          </MainLayout>
+        </ApprovalProvider>
+      </DashboardProvider>
+    </ThemeProvider>
   );
 }
 

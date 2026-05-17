@@ -18,16 +18,16 @@ const MainLayout = ({ currentPage, setCurrentPage, children }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-muted-50">
+    <div className="min-h-screen bg-muted-50 dark:bg-slate-950">
       {/* Header */}
-      <Header 
+      <Header
         onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         pageTitle={navigationItems.find(item => item.id === currentPage)?.label || 'Dashboard'}
       />
 
       <div className="flex">
         {/* Sidebar */}
-        <Sidebar 
+        <Sidebar
           isOpen={sidebarOpen}
           currentPage={currentPage}
           onNavigate={(page) => {
@@ -39,7 +39,9 @@ const MainLayout = ({ currentPage, setCurrentPage, children }) => {
 
         {/* Main Content */}
         <main className="flex-1 pt-20 lg:ml-64">
-          {children}
+          <div className="p-6">
+            {children}
+          </div>
         </main>
       </div>
     </div>
