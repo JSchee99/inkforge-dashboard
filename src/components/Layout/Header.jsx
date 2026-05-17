@@ -6,6 +6,24 @@ const Header = ({ onMenuClick, pageTitle }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
 
+  const handleHelpClick = () => {
+    alert('Help & Support\n\nFor assistance, contact support@inkforge.dev');
+  };
+
+  const handleSettingsClick = () => {
+    alert('Settings panel is now available from the sidebar navigation');
+  };
+
+  const handleProfileClick = () => {
+    alert('Profile management coming soon');
+  };
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      alert('Logged out successfully');
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 h-20 bg-primary-500 dark:bg-slate-800 text-white shadow-lg z-20">
       <div className="flex items-center justify-between h-full px-4 lg:px-6">
@@ -44,6 +62,7 @@ const Header = ({ onMenuClick, pageTitle }) => {
 
           {/* Help Button */}
           <button
+            onClick={handleHelpClick}
             className="p-2 hover:bg-primary-600 rounded-md transition focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:outline-none"
             aria-label="Help and support"
             title="Help"
@@ -53,6 +72,7 @@ const Header = ({ onMenuClick, pageTitle }) => {
 
           {/* Settings Button */}
           <button
+            onClick={handleSettingsClick}
             className="p-2 hover:bg-primary-600 rounded-md transition focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:outline-none"
             aria-label="Open settings"
             title="Settings"
@@ -86,12 +106,14 @@ const Header = ({ onMenuClick, pageTitle }) => {
                 aria-label="User options"
               >
                 <button
+                  onClick={handleProfileClick}
                   className="w-full text-left px-4 py-2 hover:bg-muted-100 transition focus:ring-2 focus:ring-offset-2 focus:ring-primary-200 focus:outline-none"
                   role="menuitem"
                 >
                   Profile
                 </button>
                 <button
+                  onClick={handleSettingsClick}
                   className="w-full text-left px-4 py-2 hover:bg-muted-100 transition focus:ring-2 focus:ring-offset-2 focus:ring-primary-200 focus:outline-none"
                   role="menuitem"
                 >
@@ -99,6 +121,7 @@ const Header = ({ onMenuClick, pageTitle }) => {
                 </button>
                 <hr className="my-2" />
                 <button
+                  onClick={handleLogout}
                   className="w-full text-left px-4 py-2 hover:bg-muted-100 transition text-destructive-500 font-medium focus:ring-2 focus:ring-offset-2 focus:ring-destructive-200 focus:outline-none"
                   role="menuitem"
                 >

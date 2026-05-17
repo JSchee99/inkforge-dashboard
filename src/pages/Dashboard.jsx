@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import MainLayout from '../components/Layout/MainLayout';
 import PipelineOverview from '../components/Dashboard/PipelineOverview';
 import CurrentBookInfo from '../components/Dashboard/CurrentBookInfo';
 
@@ -30,19 +29,17 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <MainLayout currentPage="Dashboard">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <PipelineOverview pipelineData={pipelineData} />
-        </div>
-
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <CurrentBookInfo bookData={bookData} />
-        </div>
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      {/* Main Content */}
+      <div className="lg:col-span-3">
+        <PipelineOverview pipelineData={pipelineData} />
       </div>
-    </MainLayout>
+
+      {/* Sidebar */}
+      <div className="lg:col-span-1">
+        <CurrentBookInfo bookData={bookData} />
+      </div>
+    </div>
   );
 };
 
