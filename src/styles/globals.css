@@ -43,11 +43,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-muted-100;
+  @apply bg-gray-200;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-400 rounded-md hover:bg-muted-500;
+  @apply bg-gray-400 rounded-md hover:bg-gray-500;
 }
 
 /* Animation Classes */
