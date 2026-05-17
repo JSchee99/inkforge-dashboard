@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { HiEye } from 'react-icons/hi';
 import { FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
+import { validateChapter, getValidationMessage, getValidationColor } from '../../utils/chapterValidator';
 
 const Checkpoint2Manuscript = ({ manuscript = {}, onApprove, onRevise }) => {
   const [selectedChapter, setSelectedChapter] = useState(1);
@@ -19,6 +20,15 @@ const Checkpoint2Manuscript = ({ manuscript = {}, onApprove, onRevise }) => {
   ];
 
   const currentChapter = chapters.find(c => c.id === selectedChapter) || chapters[0];
+
+  // Memoized validation for all chapters
+  const chapterValidations = useMemo(() => {
+    const validations = {};
+    chapters.forEach(ch => {
+      validations[ch.id] = validateChapter(ch);
+    });
+    return validations;
+  }, [chapters]);
 
   const chapterContent = `The rain fell like shattered glass against the Portland skyline, each droplet catching the sodium lights of the empty street below. Iris Asher crouched on the rusted fire escape of the old warehouse, her heart pounding in her chest as she tracked the figure moving through the shadows. Three weeks of surveillance, three weeks of sleepless nights, had led her here. Her fingers were numb from the cold, her muscles aching from staying perfectly still, but she couldn't afford to miss this moment.
 
@@ -147,10 +157,39 @@ The battle was about to begin.`;
         <Card title={`Chapter ${currentChapter.id}: ${currentChapter.title}`}>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm" style={{ color: '#000000' }}>
-                <span className="font-mono">{currentChapter.wordCount}</span> words
-              </p>
-              <Badge variant="completed" label="Complete" />
+              {(() => {
+                const validation = chapterValidations[currentChapter.id];
+                return (
+                  <>
+                    <p className="text-sm" style={{ color: '#000000' }}>
+                      <span className="font-mono">{validation?.data?.wordCount || currentChapter.wordCount}</span> words
+                      {validation && (
+                        <span style={{
+                          marginLeft: '8px',
+                          fontSize: '0.85em',
+                          color: validation.pass ? '#10b981' : '#ef4444'
+                        }}>
+                          {validation.pass ? '✓ Valid' : '✗ INVALID'}
+                        </span>
+                      )}
+                    </p>
+                    {validation && !validation.pass && (
+                      <div style={{
+                        backgroundColor: '#fee2e2',
+                        border: '1px solid #fca5a5',
+                        borderRadius: '4px',
+                        padding: '6px 8px',
+                        marginTop: '4px'
+                      }}>
+                        <p style={{ color: '#991b1b', fontSize: '0.8em', margin: 0 }}>
+                          ⚠ {validation.errors[0]}
+                        </p>
+                      </div>
+                    )}
+                    <Badge variant="completed" label="Complete" />
+                  </>
+                );
+              })()}
             </div>
             <div className="flex gap-2">
               <Button
