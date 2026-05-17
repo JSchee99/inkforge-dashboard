@@ -116,7 +116,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
             <Card key={ad.id} title={ad.platform} subtitle={ad.type}>
               <div className="space-y-3">
                 <div className="bg-muted-50 p-4 rounded-md border-l-4 border-primary-500">
-                  <p className="text-sm text-muted-800">{ad.preview}</p>
+                  <p className="text-sm text-black">{ad.preview}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <Badge variant="info" label={`CTA: ${ad.cta}`} />
@@ -140,7 +140,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
             <Card key={post.id} title={post.platform}>
               <div className="space-y-3">
                 <div className="bg-muted-50 p-4 rounded-md border-l-4 border-accent-500">
-                  <p className="text-sm text-muted-800 leading-relaxed whitespace-pre-wrap">{post.content}</p>
+                  <p className="text-sm text-black leading-relaxed whitespace-pre-wrap">{post.content}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-2">
@@ -174,7 +174,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
               <div className="space-y-3">
                 <div className="bg-muted-50 p-4 rounded-md">
                   <p className="text-xs text-muted-600 mb-2">SAMPLE</p>
-                  <p className="text-sm italic text-muted-800">"{audio.sample}"</p>
+                  <p className="text-sm italic text-black">"{audio.sample}"</p>
                 </div>
                 <div className="bg-white border border-muted-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
@@ -201,7 +201,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
         <div className="space-y-4">
           <div className="bg-muted-50 p-4 rounded-md">
             <p className="text-sm font-mono font-semibold text-primary-900 mb-2">Approval Summary</p>
-            <div className="space-y-2 text-sm text-muted-700">
+            <div className="space-y-2 text-sm text-black">
               <p>Ads approved: {Object.entries(checkedItems).filter(([k]) => k.startsWith('ad') && checkedItems[k]).length} / {ads.length}</p>
               <p>Social posts approved: {Object.entries(checkedItems).filter(([k]) => k.startsWith('post') && checkedItems[k]).length} / {socialPosts.length}</p>
               <p>Audio samples approved: {Object.entries(checkedItems).filter(([k]) => k.startsWith('audio') && checkedItems[k]).length} / {audioSamples.length}</p>
@@ -211,6 +211,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
           <textarea
             placeholder="Add any final notes or feedback on the marketing materials..."
             className="w-full p-3 border border-muted-200 rounded-md text-sm font-sans focus:outline-none focus:ring-2 focus:ring-primary-500"
+            style={{ color: '#000000' }}
             rows={4}
           />
 

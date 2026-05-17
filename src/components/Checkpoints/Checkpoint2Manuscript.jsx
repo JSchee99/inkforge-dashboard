@@ -227,6 +227,7 @@ The battle was about to begin.`;
           <textarea
             placeholder="Add notes about this chapter, suggestions for revision, or approval feedback..."
             className="w-full p-3 border border-muted-200 rounded-md text-sm font-sans focus:outline-none focus:ring-2 focus:ring-primary-500"
+            style={{ color: '#000000' }}
             rows={4}
           />
         </Card>

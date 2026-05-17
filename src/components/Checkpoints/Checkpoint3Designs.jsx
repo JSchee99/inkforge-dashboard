@@ -78,10 +78,10 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
               {/* Info */}
               <div className="p-3 bg-white">
                 <p className="font-mono font-semibold text-primary-900">{design.name}</p>
-                <p className="text-xs text-muted-600 mt-1">{design.style}</p>
+                <p className="text-xs text-black mt-1">{design.style}</p>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-xs font-mono text-primary-500">★ {design.rating}</span>
-                  <span className="text-xs text-muted-600">({design.votes} votes)</span>
+                  <span className="text-xs text-black">({design.votes} votes)</span>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
           {/* Design Details */}
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center bg-muted-50 p-3 rounded-md">
-              <p className="text-xs text-muted-600 uppercase font-medium">Primary Color</p>
+              <p className="text-xs text-black uppercase font-medium">Primary Color</p>
               <div
                 className="w-8 h-8 rounded-md mx-auto mt-2"
                 style={{ backgroundColor: currentDesign.colors[0] }}
@@ -148,7 +148,7 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
               <p className="text-xs font-mono mt-1">{currentDesign.colors[0]}</p>
             </div>
             <div className="text-center bg-muted-50 p-3 rounded-md">
-              <p className="text-xs text-muted-600 uppercase font-medium">Secondary</p>
+              <p className="text-xs text-black uppercase font-medium">Secondary</p>
               <div
                 className="w-8 h-8 rounded-md mx-auto mt-2"
                 style={{ backgroundColor: currentDesign.colors[1] }}
@@ -156,7 +156,7 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
               <p className="text-xs font-mono mt-1">{currentDesign.colors[1]}</p>
             </div>
             <div className="text-center bg-muted-50 p-3 rounded-md">
-              <p className="text-xs text-muted-600 uppercase font-medium">Accent</p>
+              <p className="text-xs text-black uppercase font-medium">Accent</p>
               <div
                 className="w-8 h-8 rounded-md mx-auto mt-2"
                 style={{ backgroundColor: currentDesign.colors[2] }}
@@ -174,7 +174,7 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
             <p className="text-sm font-mono font-semibold text-primary-900 mb-2">
               Selected: {currentDesign.name}
             </p>
-            <p className="text-xs text-muted-600">
+            <p className="text-xs text-black">
               Community rating: ★ {currentDesign.rating} ({currentDesign.votes} votes)
             </p>
           </div>
@@ -184,6 +184,7 @@ const Checkpoint3Designs = ({ designs = {}, onApprove, onRevise }) => {
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Add feedback on the design, color scheme, or suggestions for changes..."
             className="w-full p-3 border border-muted-200 rounded-md text-sm font-sans focus:outline-none focus:ring-2 focus:ring-primary-500"
+            style={{ color: '#000000' }}
             rows={4}
           />
 

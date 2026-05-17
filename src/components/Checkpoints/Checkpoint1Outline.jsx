@@ -111,7 +111,7 @@ const Checkpoint1Outline = ({ bookData = {}, onApprove, onRevise, onReject }) =>
           <div className="space-y-4 border-t border-muted-100 pt-4">
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Premise</h4>
-              <p className="text-sm text-muted-700 leading-relaxed">{book.premise}</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#000000' }}>{book.premise}</p>
             </div>
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Themes</h4>
@@ -146,7 +146,7 @@ const Checkpoint1Outline = ({ bookData = {}, onApprove, onRevise, onReject }) =>
                   </div>
                   <Badge variant="neutral" label={char.role} />
                 </div>
-                <p className="text-sm text-muted-700 mb-2">{char.description}</p>
+                <p className="text-sm mb-2" style={{ color: '#000000' }}>{char.description}</p>
                 <p className="text-xs text-primary-500 font-mono">Arc: {char.arc}</p>
               </div>
             ))}
@@ -168,25 +168,25 @@ const Checkpoint1Outline = ({ bookData = {}, onApprove, onRevise, onReject }) =>
           <div className="space-y-4 border-t border-muted-100 pt-4">
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Setting</h4>
-              <p className="text-sm text-muted-700">{book.worldBuilding.setting}</p>
+              <p className="text-sm" style={{ color: '#000000' }}>{book.worldBuilding.setting}</p>
             </div>
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Zones</h4>
               <div className="space-y-1">
                 {book.worldBuilding.zones.map(zone => (
-                  <p key={zone} className="text-sm text-muted-700">• {zone}</p>
+                  <p key={zone} className="text-sm" style={{ color: '#000000' }}>• {zone}</p>
                 ))}
               </div>
             </div>
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Magic System</h4>
-              <p className="text-sm text-muted-700">{book.worldBuilding.magicSystem}</p>
+              <p className="text-sm" style={{ color: '#000000' }}>{book.worldBuilding.magicSystem}</p>
             </div>
             <div>
               <h4 className="font-mono font-semibold text-primary-900 mb-2">Rules</h4>
               <ul className="space-y-1">
                 {book.worldBuilding.rules.map(rule => (
-                  <li key={rule} className="text-sm text-muted-700">• {rule}</li>
+                  <li key={rule} className="text-sm" style={{ color: '#000000' }}>• {rule}</li>
                 ))}
               </ul>
             </div>
@@ -218,6 +218,7 @@ const Checkpoint1Outline = ({ bookData = {}, onApprove, onRevise, onReject }) =>
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Add any notes, suggestions, or concerns..."
             className="w-full p-3 border border-muted-200 rounded-md font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+            style={{ color: '#000000' }}
             rows={4}
           />
 
