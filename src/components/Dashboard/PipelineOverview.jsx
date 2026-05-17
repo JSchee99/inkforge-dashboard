@@ -110,9 +110,9 @@ const PipelineOverview = ({ pipelineData = {} }) => {
               status={agent.status}
               progress={agent.progress}
               eta={agent.eta}
-              onRetry={() => console.log(`Retrying ${agent.id}`)}
-              onViewLogs={() => console.log(`Viewing logs for ${agent.id}`)}
-              onPause={() => console.log(`Pausing ${agent.id}`)}
+              onRetry={() => alert(`Retrying ${agent.name}...`)}
+              onViewLogs={() => alert(`Logs for ${agent.name}:\n\n[Agent logs would be displayed here]\n\nAgent ID: ${agent.id}\nStatus: ${agent.status}\nProgress: ${agent.progress}%`)}
+              onPause={() => alert(`Paused ${agent.name}`)}
             />
           ))}
         </div>

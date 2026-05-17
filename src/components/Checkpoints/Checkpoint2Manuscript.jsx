@@ -111,13 +111,27 @@ And that's when Iris Asher's normal life ended forever.`;
         <Card title={`Chapter ${currentChapter.id}: ${currentChapter.title}`}>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm text-muted-600">
+              <p className="text-sm text-muted-900">
                 <span className="font-mono">{currentChapter.wordCount}</span> words
               </p>
               <Badge variant="completed" label="Complete" />
             </div>
             <div className="flex gap-2">
-              <Button variant="ghost" size="sm" icon={FaDownload}>
+              <Button
+                variant="ghost"
+                size="sm"
+                icon={FaDownload}
+                onClick={() => {
+                  const text = `Chapter ${currentChapter.id}: ${currentChapter.title}\n\n${chapterContent}`;
+                  const element = document.createElement('a');
+                  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                  element.setAttribute('download', `Chapter_${currentChapter.id}.txt`);
+                  element.style.display = 'none';
+                  document.body.appendChild(element);
+                  element.click();
+                  document.body.removeChild(element);
+                }}
+              >
                 Download
               </Button>
             </div>
@@ -126,8 +140,8 @@ And that's when Iris Asher's normal life ended forever.`;
 
         {/* Chapter Content */}
         <Card title="Content">
-          <div className="prose prose-sm max-w-none">
-            <p className="text-sm leading-relaxed text-muted-800 whitespace-pre-wrap">
+          <div className="prose prose-sm max-w-none max-h-96 overflow-y-auto pr-4">
+            <p className="text-sm leading-relaxed text-muted-900 whitespace-pre-wrap">
               {chapterContent}
             </p>
           </div>
