@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { HiPlay, HiPause, HiDownload } from 'react-icons/hi';
+import { HiPlay, HiPause } from 'react-icons/hi';
+import { FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 
@@ -70,7 +71,7 @@ const AudioPlayer = () => {
                       <p className="text-sm font-mono font-semibold text-primary-900">{sample.duration}</p>
                     </div>
                   </div>
-                  <Button variant="secondary" size="sm" icon={HiDownload}>
+                  <Button variant="secondary" size="sm" icon={FaDownload}>
                     Download
                   </Button>
                 </div>

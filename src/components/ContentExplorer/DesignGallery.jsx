@@ -2,7 +2,8 @@ import React from 'react';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
-import { HiDownload, HiEye } from 'react-icons/hi';
+import { HiEye } from 'react-icons/hi';
+import { FaDownload } from 'react-icons/fa';
 
 const DesignGallery = () => {
   const designs = [
@@ -28,7 +29,7 @@ const DesignGallery = () => {
               </div>
               <div className="flex gap-2">
                 <Button variant="secondary" size="sm" icon={HiEye}>View</Button>
-                <Button variant="secondary" size="sm" icon={HiDownload}>Download</Button>
+                <Button variant="secondary" size="sm" icon={FaDownload}>Download</Button>
               </div>
             </div>
           </Card>

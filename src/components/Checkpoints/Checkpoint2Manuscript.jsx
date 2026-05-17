@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { HiDownload, HiEye, HiSearch } from 'react-icons/hi';
+import { HiEye } from 'react-icons/hi';
+import { FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
@@ -116,7 +117,7 @@ And that's when Iris Asher's normal life ended forever.`;
               <Badge variant="completed" label="Complete" />
             </div>
             <div className="flex gap-2">
-              <Button variant="ghost" size="sm" icon={HiDownload}>
+              <Button variant="ghost" size="sm" icon={FaDownload}>
                 Download
               </Button>
             </div>

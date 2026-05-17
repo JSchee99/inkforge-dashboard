@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HiCopy, HiDownload } from 'react-icons/hi';
+import { FaCopy, FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
@@ -64,7 +64,7 @@ const SocialContentLibrary = () => {
                   <Button
                     variant="secondary"
                     size="sm"
-                    icon={HiCopy}
+                    icon={FaCopy}
                     onClick={() => copyToClipboard(item.text, item.id)}
                   >
                     {copied === item.id ? 'Copied!' : 'Copy'}
@@ -72,7 +72,7 @@ const SocialContentLibrary = () => {
                   <Button
                     variant="secondary"
                     size="sm"
-                    icon={HiDownload}
+                    icon={FaDownload}
                   >
                     Download
                   </Button>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { HiCheck, HiCopy, HiDownload } from 'react-icons/hi';
+import { HiCheck } from 'react-icons/hi';
+import { FaCopy, FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
@@ -146,7 +147,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
                     <Button
                       variant="tertiary"
                       size="sm"
-                      icon={HiCopy}
+                      icon={FaCopy}
                       onClick={() => copyToClipboard(post.content, post.id)}
                     >
                       {copied === post.id ? 'Copied!' : 'Copy'}
@@ -178,7 +179,7 @@ const Checkpoint4Marketing = ({ marketingData = {}, onApprove, onRevise }) => {
                 <div className="bg-white border border-muted-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-mono text-muted-600">{audio.preview}</span>
-                    <Button variant="secondary" size="sm" icon={HiDownload}>
+                    <Button variant="secondary" size="sm" icon={FaDownload}>
                       Download
                     </Button>
                   </div>

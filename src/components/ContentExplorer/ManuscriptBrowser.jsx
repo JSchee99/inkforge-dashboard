@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HiDownload, HiSearch } from 'react-icons/hi';
+import { FaDownload } from 'react-icons/fa';
 import Card from '../common/Card';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
@@ -36,7 +36,7 @@ const ManuscriptBrowser = () => {
               </div>
               <div className="flex flex-wrap gap-2">
                 {ms.format.map(fmt => (
-                  <Button key={fmt} variant="secondary" size="sm" icon={HiDownload}>
+                  <Button key={fmt} variant="secondary" size="sm" icon={FaDownload}>
                     {fmt}
                   </Button>
                 ))}
