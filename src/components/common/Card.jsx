@@ -44,7 +44,7 @@ const Card = ({
         <div className="border-b border-muted-100 px-4 py-3 flex items-start justify-between">
           <div>
             {title && <h3 className="font-mono font-semibold text-primary-900">{title}</h3>}
-            {subtitle && <p className="text-sm text-black mt-1">{subtitle}</p>}
+            {subtitle && <p className="text-sm mt-1" style={{ color: '#000000' }}>{subtitle}</p>}
           </div>
           <div className="flex items-center gap-2">
             {status && (

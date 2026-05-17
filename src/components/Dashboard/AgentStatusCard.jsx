@@ -47,7 +47,7 @@ const AgentStatusCard = ({
         {/* ETA */}
         {eta && (
           <div className="bg-muted-100 rounded-md p-3">
-            <p className="text-xs text-black font-medium">ESTIMATED COMPLETION</p>
+            <p className="text-xs font-medium" style={{ color: '#000000' }}>ESTIMATED COMPLETION</p>
             <p className="text-sm font-mono text-primary-900 mt-1">{eta}</p>
           </div>
         )}
