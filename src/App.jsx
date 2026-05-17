@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { DashboardProvider } from './context/DashboardContext';
-import { ApprovalProvider } from './context/ApprovalContext';
+import { DashboardProvider } from './context/DashboardContext.jsx';
+import { ApprovalProvider } from './context/ApprovalContext.jsx';
 import MainLayout from './components/Layout/MainLayout';
 import Dashboard from './pages/Dashboard';
 import Checkpoint1Outline from './components/Checkpoints/Checkpoint1Outline';
