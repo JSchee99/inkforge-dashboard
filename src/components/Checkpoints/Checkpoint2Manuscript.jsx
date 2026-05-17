@@ -11,7 +11,7 @@ const Checkpoint2Manuscript = ({ manuscript = {}, onApprove, onRevise }) => {
   const [checkedChapters, setCheckedChapters] = useState({});
 
   const chapters = manuscript.chapters || [
-    { id: 1, title: 'Raven in the Rain', wordCount: 3500, status: 'complete' },
+    { id: 1, title: 'Raven in the Rain', wordCount: 234, status: 'complete' },
     { id: 2, title: 'The University', wordCount: 4200, status: 'complete' },
     { id: 3, title: 'First Meeting', wordCount: 3800, status: 'complete' },
     { id: 4, title: 'Blood in the Dark', wordCount: 4100, status: 'complete' },
@@ -111,7 +111,7 @@ And that's when Iris Asher's normal life ended forever.`;
         <Card title={`Chapter ${currentChapter.id}: ${currentChapter.title}`}>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm text-muted-900">
+              <p className="text-sm text-black">
                 <span className="font-mono">{currentChapter.wordCount}</span> words
               </p>
               <Badge variant="completed" label="Complete" />
@@ -141,7 +141,7 @@ And that's when Iris Asher's normal life ended forever.`;
         {/* Chapter Content */}
         <Card title="Content">
           <div className="prose prose-sm max-w-none max-h-96 overflow-y-auto pr-4">
-            <p className="text-sm leading-relaxed text-muted-900 whitespace-pre-wrap">
+            <p className="text-sm leading-relaxed text-black whitespace-pre-wrap">
               {chapterContent}
             </p>
           </div>
