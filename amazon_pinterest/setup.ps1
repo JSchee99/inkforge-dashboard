@@ -24,6 +24,8 @@ Write-Host "[*] Activating virtual environment..." -ForegroundColor Yellow
 # Install dependencies
 Write-Host "[*] Installing Python dependencies..." -ForegroundColor Yellow
 pip install --upgrade pip -q
+# Force binary wheel for greenlet — avoids Miniconda/Python 3.13 C-header build error
+pip install --only-binary :all: greenlet
 pip install -r requirements.txt
 
 # Install Playwright browser
