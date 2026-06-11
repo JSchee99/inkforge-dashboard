@@ -18,13 +18,16 @@ USER_AGENTS: List[str] = [
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
 ]
 
+# Higher-commission categories (3–8%) with less big-brand saturation
 BEST_SELLER_CATEGORIES: List[dict] = [
-    {"name": "Electronics",   "url": "https://www.amazon.com/gp/bestsellers/electronics/"},
-    {"name": "Kitchen",       "url": "https://www.amazon.com/gp/bestsellers/kitchen/"},
-    {"name": "Sports",        "url": "https://www.amazon.com/gp/bestsellers/sporting-goods/"},
     {"name": "Home Garden",   "url": "https://www.amazon.com/gp/bestsellers/home-garden/"},
-    {"name": "Tools",         "url": "https://www.amazon.com/gp/bestsellers/hi/"},
+    {"name": "Kitchen",       "url": "https://www.amazon.com/gp/bestsellers/kitchen/"},
     {"name": "Beauty",        "url": "https://www.amazon.com/gp/bestsellers/beauty/"},
+    {"name": "Toys",          "url": "https://www.amazon.com/gp/bestsellers/toys-and-games/"},
+    {"name": "Pet Supplies",  "url": "https://www.amazon.com/gp/bestsellers/pet-supplies/"},
+    {"name": "Health",        "url": "https://www.amazon.com/gp/bestsellers/hpc/"},
+    {"name": "Sports",        "url": "https://www.amazon.com/gp/bestsellers/sporting-goods/"},
+    {"name": "Tools",         "url": "https://www.amazon.com/gp/bestsellers/hi/"},
 ]
 
 # CSS selectors tried in order — Amazon restructures its DOM periodically
@@ -62,10 +65,17 @@ class Product:
 
 
 class Scraper:
-    def __init__(self, affiliate_tag: str, min_price: float = 50.0, max_products: int = 10):
+    def __init__(
+        self,
+        affiliate_tag: str,
+        min_price: float = 50.0,
+        max_products: int = 10,
+        exclude_brands: Optional[List[str]] = None,
+    ):
         self.affiliate_tag = affiliate_tag
         self.min_price = min_price
         self.max_products = max_products
+        self.exclude_brands: List[str] = [b.lower() for b in (exclude_brands or [])]
         self.products: List[Product] = []
 
     # ------------------------------------------------------------------ helpers
@@ -160,6 +170,11 @@ class Scraper:
                     try:
                         title = await self._first_text(item, _TITLE_SELECTORS)
                         if not title:
+                            continue
+
+                        # Brand exclusion filter
+                        title_lower = title.lower()
+                        if any(brand in title_lower for brand in self.exclude_brands):
                             continue
 
                         price_text = await self._first_attr(item, _PRICE_SELECTORS, "aria-label")

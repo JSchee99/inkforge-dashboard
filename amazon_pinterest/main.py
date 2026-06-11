@@ -63,7 +63,9 @@ def _validate_config(dry_run: bool) -> None:
     if not config.AMAZON_AFFILIATE_TAG:
         print("[!] Warning: AMAZON_AFFILIATE_TAG not set — product URLs will have no affiliate tag.")
     else:
-        print(f"[*] Affiliate tag loaded: {config.AMAZON_AFFILIATE_TAG}")
+        print(f"[*] Affiliate tag loaded : {config.AMAZON_AFFILIATE_TAG}")
+    if config.EXCLUDE_BRANDS:
+        print(f"[*] Excluding brands     : {', '.join(config.EXCLUDE_BRANDS)}")
     if not config.AYRSHARE_API_KEY and not dry_run:
         print("[!] Error: AYRSHARE_API_KEY is missing.")
         print("    Add it to your .env file:  AYRSHARE_API_KEY=your_key_here")
@@ -85,6 +87,7 @@ async def run(dry_run: bool, save_csv: bool) -> None:
         affiliate_tag=config.AMAZON_AFFILIATE_TAG,
         min_price=config.MIN_PRICE,
         max_products=config.MAX_PRODUCTS,
+        exclude_brands=config.EXCLUDE_BRANDS,
     )
     products = await scraper.scrape()
 
