@@ -5,7 +5,7 @@ import json
 import random
 import re
 import csv
-from dataclasses import dataclass, asdict, field
+from dataclasses import dataclass, asdict
 from typing import List, Optional
 
 from playwright.async_api import async_playwright, Page, BrowserContext
