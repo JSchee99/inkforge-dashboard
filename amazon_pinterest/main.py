@@ -8,11 +8,7 @@ import argparse
 import asyncio
 import sys
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-import config
+import config  # config.py handles dotenv loading with an explicit path
 from scraper import Scraper, Product
 from post_generator import PostGenerator, PostContent
 from publish_manager import PublishManager
