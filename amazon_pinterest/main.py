@@ -62,6 +62,8 @@ def _ask(prompt: str) -> bool:
 def _validate_config(dry_run: bool) -> None:
     if not config.AMAZON_AFFILIATE_TAG:
         print("[!] Warning: AMAZON_AFFILIATE_TAG not set — product URLs will have no affiliate tag.")
+    else:
+        print(f"[*] Affiliate tag loaded: {config.AMAZON_AFFILIATE_TAG}")
     if not config.AYRSHARE_API_KEY and not dry_run:
         print("[!] Error: AYRSHARE_API_KEY is missing.")
         print("    Add it to your .env file:  AYRSHARE_API_KEY=your_key_here")
